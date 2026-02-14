@@ -215,7 +215,7 @@ nav::after {
   gap: 60px;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 130px 48px 80px;
+  padding: 150px 48px 80px;
   position: relative;
   z-index: 1;
 }
@@ -982,6 +982,16 @@ a, button, input[type="button"], input[type="submit"],
   </div>
 </nav>
 
+<!-- CA TICKER BAR -->
+<div style="background: var(--paper2); border-bottom: 2.5px solid var(--ink); padding: 12px 48px; position: fixed; top: 62px; width: 100%; z-index: 99; display: flex; align-items: center; justify-content: center; gap: 16px;">
+  <span style="font-family: 'Caveat', cursive; font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted);">Contract Address:</span>
+  <div id="caTopValue" style="font-family: 'Courier New', monospace; font-size: 14px; color: var(--ink); background: var(--paper); border: 2px solid var(--ink); border-radius: 3px; padding: 6px 16px; letter-spacing: .5px;">xxxxxxxxxxxxxxxxxxxxx</div>
+  <button onclick="copyCA()" style="font-family: 'Caveat', cursive; font-size: 13px; font-weight: 700; padding: 6px 14px; border: 2px solid var(--ink); background: var(--blue); color: white; border-radius: 3px; cursor: pointer; transition: all .15s;" onmouseover="this.style.background='var(--ink)'" onmouseout="this.style.background='var(--blue)'">
+    📋 Copy
+  </button>
+</div>
+
+
 <!-- HERO -->
 <div class="hero">
   <div>
@@ -1263,7 +1273,7 @@ a, button, input[type="button"], input[type="submit"],
     <div class="ca-box" onclick="copyCA()">
       <div>
         <div class="ca-lbl">Contract Address</div>
-        <div class="ca-val" id="caVal">TBA - Contract Address Coming Soon</div>
+        <div class="ca-val" id="caVal">xxxxxxxxxxxxxxxxxxxxx</div>
       </div>
       <span id="caIcon" style="font-size:18px;">📋</span>
     </div>
@@ -1353,7 +1363,16 @@ function doScratch() {
 
 // ── COPY CA ───────────────────────────────────────────────
 function copyCA() {
-  navigator.clipboard.writeText(document.getElementById('caVal').textContent).catch(()=>{});
+  const ca = 'xxxxxxxxxxxxxxxxxxxxx';
+  navigator.clipboard.writeText(ca).then(() => {
+    const btn = event.target;
+    const original = btn.innerHTML;
+    btn.innerHTML = '✅ Copied!';
+    setTimeout(() => btn.innerHTML = original, 2000);
+  }).catch(() => {
+    alert('Failed to copy. CA: ' + ca);
+  });
+  navigator.clipboard.writeText('xxxxxxxxxxxxxxxxxxxxx').catch(()=>{});
   document.getElementById('caIcon').textContent = '✅';
   setTimeout(() => document.getElementById('caIcon').textContent = '📋', 2000);
 }
