@@ -985,7 +985,7 @@ a, button, input[type="button"], input[type="submit"],
 <!-- CA TICKER BAR -->
 <div style="background: var(--paper2); border-bottom: 2.5px solid var(--ink); padding: 12px 48px; position: fixed; top: 62px; width: 100%; z-index: 99; display: flex; align-items: center; justify-content: center; gap: 16px;">
   <span style="font-family: 'Caveat', cursive; font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted);">Contract Address:</span>
-  <div id="caTopValue" style="font-family: 'Courier New', monospace; font-size: 14px; color: var(--ink); background: var(--paper); border: 2px solid var(--ink); border-radius: 3px; padding: 6px 16px; letter-spacing: .5px;">xxxxxxxxxxxxxxxxxxxxx</div>
+  <div id="caTopValue" style="font-family: 'Courier New', monospace; font-size: 14px; color: var(--ink); background: var(--paper); border: 2px solid var(--ink); border-radius: 3px; padding: 6px 16px; letter-spacing: .5px;">9tYohZ4BxLKjNmxMRiGmcUs5MbkS9ev1zztvMAwdpump</div>
   <button onclick="copyCATop()" style="font-family: 'Caveat', cursive; font-size: 13px; font-weight: 700; padding: 6px 14px; border: 2px solid var(--ink); background: var(--blue); color: white; border-radius: 3px; cursor: pointer; transition: all .15s;" onmouseover="this.style.background='var(--ink)'" onmouseout="this.style.background='var(--blue)'">
     📋 Copy
   </button>
@@ -1273,7 +1273,7 @@ a, button, input[type="button"], input[type="submit"],
     <div class="ca-box" onclick="copyCA()">
       <div>
         <div class="ca-lbl">Contract Address</div>
-        <div class="ca-val" id="caVal">xxxxxxxxxxxxxxxxxxxxx</div>
+        <div class="ca-val" id="caVal">9tYohZ4BxLKjNmxMRiGmcUs5MbkS9ev1zztvMAwdpump</div>
       </div>
       <span id="caIcon" style="font-size:18px;">📋</span>
     </div>
@@ -1363,7 +1363,7 @@ function doScratch() {
 
 // ── COPY CA ───────────────────────────────────────────────
 function copyCATop() {
-  const ca = 'xxxxxxxxxxxxxxxxxxxxx';
+  const ca = '9tYohZ4BxLKjNmxMRiGmcUs5MbkS9ev1zztvMAwdpump';
   navigator.clipboard.writeText(ca).then(() => {
     alert('✅ Copied: ' + ca);
   }).catch(() => {
@@ -1376,7 +1376,7 @@ function copyCATop() {
     document.body.removeChild(temp);
     alert('✅ Copied: ' + ca);
   });
-  navigator.clipboard.writeText('xxxxxxxxxxxxxxxxxxxxx').catch(()=>{});
+  navigator.clipboard.writeText('9tYohZ4BxLKjNmxMRiGmcUs5MbkS9ev1zztvMAwdpump').catch(()=>{});
   document.getElementById('caIcon').textContent = '✅';
   setTimeout(() => document.getElementById('caIcon').textContent = '📋', 2000);
 }
