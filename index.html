@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>$ITCHYBALLS</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0b0b0f;
+  --bg2: #111118;
+  --bg3: #16161f;
+  --blue: #3b82f6;
+  --blue-dim: rgba(59,130,246,0.1);
+  --blue-mid: rgba(59,130,246,0.35);
+  --text: #f0f0f0;
+  --muted: rgba(240,240,240,0.42);
+  --muted2: rgba(240,240,240,0.14);
+  --accent: #e8d5b0;
+  --gold: #f5c842;
+  --line: rgba(255,255,255,0.07);
+  --r: 4px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.024;pointer-events:none;z-index:9998;}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;width:100%;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:64px;border-bottom:1px solid var(--line);background:rgba(11,11,15,.92);backdrop-filter:blur(16px);}
+.nav-logo{font-family:'DM Serif Display',serif;font-size:20px;letter-spacing:.02em;}
+.nav-logo span{color:var(--blue);}
+.nav-mid{display:flex;gap:36px;position:absolute;left:50%;transform:translateX(-50%);}
+.nav-mid a{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s;}
+.nav-mid a:hover{color:var(--text);}
+.nav-r{display:flex;gap:12px;}
+.btn-o{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:9px 20px;border:1px solid var(--blue);background:transparent;color:var(--blue);border-radius:var(--r);cursor:pointer;text-decoration:none;transition:all .2s;display:inline-flex;align-items:center;gap:8px;}
+.btn-o:hover{background:var(--blue);color:#fff;}
+.btn-f{background:var(--blue);color:#fff;}
+.btn-f:hover{background:transparent;color:var(--blue);}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:80px;max-width:1280px;margin:0 auto;padding:120px 48px 80px;}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--blue);border:1px solid var(--blue-mid);background:var(--blue-dim);padding:6px 14px;border-radius:2px;margin-bottom:32px;}
+.pdot{width:6px;height:6px;border-radius:50%;background:var(--blue);animation:pd 1.5s ease-in-out infinite;}
+@keyframes pd{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.3;transform:scale(.6);}}
+h1{font-family:'DM Serif Display',serif;font-size:clamp(52px,5.5vw,84px);line-height:1.0;letter-spacing:-.02em;margin-bottom:10px;}
+h1 em{font-style:italic;color:var(--blue);}
+.htick{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:.08em;margin-bottom:28px;display:flex;align-items:center;gap:10px;}
+.hdesc{font-size:16px;line-height:1.8;color:var(--muted);max-width:440px;margin-bottom:44px;}
+.hdesc strong{color:var(--text);}
+.hacts{display:flex;gap:14px;flex-wrap:wrap;}
+.btn-p{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:14px 28px;background:var(--blue);color:#fff;border:1px solid var(--blue);border-radius:var(--r);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:10px;transition:all .2s;}
+.btn-p:hover{background:transparent;color:var(--blue);}
+.btn-g{font-family:'Syne',sans-serif;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:13px 24px;background:transparent;color:var(--muted);border:1px solid var(--line);border-radius:var(--r);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:10px;transition:all .2s;}
+.btn-g:hover{border-color:var(--muted2);color:var(--text);}
+
+/* HERO VISUAL */
+.hright{display:flex;align-items:center;justify-content:center;position:relative;}
+.orb{position:absolute;width:480px;height:480px;border-radius:50%;background:radial-gradient(ellipse at 40% 40%,rgba(59,130,246,.18) 0%,transparent 65%);pointer-events:none;}
+.bwrap{position:relative;width:360px;height:360px;display:flex;align-items:center;justify-content:center;}
+.bsvg{width:320px;height:320px;filter:drop-shadow(0 0 40px rgba(59,130,246,.35)) drop-shadow(0 0 80px rgba(59,130,246,.12));animation:fballs 6s ease-in-out infinite;}
+@keyframes fballs{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
+.blbl{position:absolute;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;color:var(--muted);border:1px solid var(--line);background:rgba(11,11,15,.85);padding:5px 10px;border-radius:2px;backdrop-filter:blur(8px);white-space:nowrap;}
+.blbl.tl{top:36px;left:-8px;}
+.blbl.tr{top:36px;right:-8px;}
+.blbl.br{bottom:44px;right:-8px;}
+
+/* ── ITCH BAR ── */
+.ibar{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg2);height:40px;display:flex;align-items:center;padding:0 48px;gap:24px;}
+.ibar-lbl{font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);white-space:nowrap;min-width:90px;}
+.ibar-wrap{flex:1;height:2px;background:var(--line);border-radius:999px;overflow:hidden;}
+.ibar-fill{height:100%;background:linear-gradient(90deg,var(--blue),#93c5fd);border-radius:999px;width:0%;transition:width 1s ease;}
+.ibar-val{font-family:'DM Mono',monospace;font-size:11px;color:var(--blue);white-space:nowrap;min-width:50px;text-align:right;}
+
+/* ── TICKER ── */
+.ticker{border-bottom:1px solid var(--line);background:var(--bg2);overflow:hidden;height:40px;display:flex;align-items:center;}
+.ttrack{display:flex;animation:tscroll 30s linear infinite;white-space:nowrap;}
+.titem{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.1em;color:var(--muted);padding:0 32px;flex-shrink:0;display:flex;align-items:center;gap:8px;}
+.titem b{color:var(--text);font-weight:500;}
+.tsep{width:1px;height:12px;background:var(--line);flex-shrink:0;}
+@keyframes tscroll{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+
+/* ── SECTION BASE ── */
+.sec{padding:80px 48px;}
+.slbl{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.slbl::before{content:'';display:block;width:20px;height:1px;background:var(--blue);}
+.stitle{font-family:'DM Serif Display',serif;font-size:clamp(34px,4vw,52px);line-height:1.1;letter-spacing:-.02em;margin-bottom:56px;}
+.stitle em{font-style:italic;color:var(--blue);}
+
+/* ── STATS ── */
+.sgrid{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;}
+.scell{padding:40px 32px;border-right:1px solid var(--line);transition:background .3s;position:relative;overflow:hidden;}
+.scell:last-child{border-right:none;}
+.scell::before{content:'';position:absolute;inset:0;background:var(--blue-dim);opacity:0;transition:opacity .3s;}
+.scell:hover::before{opacity:1;}
+.si{width:30px;height:30px;margin-bottom:24px;color:var(--blue);}
+.sv{font-family:'DM Serif Display',serif;font-size:clamp(28px,2.5vw,44px);display:block;margin-bottom:8px;line-height:1;}
+.sl{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600;}
+
+/* ── ABOUT ── */
+.awrap{display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:start;}
+.atxt p{font-size:16px;line-height:1.85;color:var(--muted);margin-bottom:18px;}
+.atxt p strong{color:var(--text);}
+.atxt blockquote{border-left:2px solid var(--blue);padding:16px 24px;margin:28px 0;background:var(--blue-dim);border-radius:0 var(--r) var(--r) 0;}
+.atxt blockquote p{font-family:'DM Serif Display',serif;font-size:20px;font-style:italic;color:var(--text);margin:0;line-height:1.5;}
+.flist{display:flex;flex-direction:column;gap:1px;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;}
+.fitem{display:flex;align-items:flex-start;gap:20px;padding:22px 26px;background:var(--bg2);border-bottom:1px solid var(--line);transition:background .2s;}
+.fitem:last-child{border-bottom:none;}
+.fitem:hover{background:var(--bg3);}
+.fn{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.08em;color:var(--blue);flex-shrink:0;padding-top:2px;min-width:28px;}
+.fb strong{display:block;font-size:14px;font-weight:700;color:var(--text);margin-bottom:4px;}
+.fb span{font-size:13px;color:var(--muted);line-height:1.6;}
+
+/* ── TOKENOMICS ── */
+.tkwrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.rwrap{position:relative;width:300px;height:300px;margin:0 auto;}
+.rsvg{width:100%;height:100%;}
+.rcenter{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;}
+.rcv{font-family:'DM Serif Display',serif;font-size:36px;line-height:1;margin-bottom:4px;}
+.rcl{font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);}
+.titems{display:flex;flex-direction:column;gap:12px;}
+.trow{display:flex;align-items:center;gap:16px;padding:18px 22px;border:1px solid var(--line);border-radius:var(--r);background:var(--bg2);transition:all .2s;cursor:default;}
+.trow:hover{border-color:var(--blue-mid);background:var(--blue-dim);}
+.tdot{width:9px;height:9px;border-radius:50%;flex-shrink:0;}
+.tname{flex:1;font-size:14px;font-weight:600;}
+.tpct{font-family:'DM Mono',monospace;font-size:13px;color:var(--blue);}
+.tnote{font-size:11px;color:var(--muted);padding-left:12px;}
+
+/* ── ROADMAP ── */
+.rmwrap{max-width:840px;margin:0 auto;}
+.rmi{display:grid;grid-template-columns:72px 1fr;gap:0 28px;}
+.rml{display:flex;flex-direction:column;align-items:center;padding-top:6px;}
+.rmnum{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);background:var(--bg2);flex-shrink:0;position:relative;z-index:2;transition:all .3s;}
+.rmi.done .rmnum{border-color:var(--blue);color:var(--blue);background:var(--blue-dim);}
+.rmline{flex:1;width:1px;background:var(--line);margin:8px 0;}
+.rmi:last-child .rmline{display:none;}
+.rmr{padding:0 0 52px;}
+.rmph{font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--blue);margin-bottom:8px;}
+.rmtitle{font-family:'DM Serif Display',serif;font-size:24px;margin-bottom:10px;line-height:1.2;}
+.rmdesc{font-size:14px;color:var(--muted);line-height:1.75;max-width:540px;}
+.rmbadge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:3px 10px;border-radius:2px;margin-top:12px;}
+.rmbadge.done{background:rgba(59,130,246,.12);color:var(--blue);border:1px solid var(--blue-mid);}
+.rmbadge.now{background:rgba(232,213,176,.08);color:var(--accent);border:1px solid rgba(232,213,176,.25);}
+.rmbadge.up{background:rgba(255,255,255,.03);color:var(--muted);border:1px solid var(--line);}
+
+/* ══════════════════════════════════════════
+   SCRATCH CARD SECTION
+══════════════════════════════════════════ */
+.scratch-section{padding:80px 48px;border-top:1px solid var(--line);background:var(--bg2);}
+.scratch-inner{max-width:1000px;margin:0 auto;}
+
+.sc-stats{display:flex;align-items:center;gap:0;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin-bottom:40px;background:var(--bg);}
+.sc-stat{flex:1;padding:16px 20px;text-align:center;border-right:1px solid var(--line);}
+.sc-stat:last-child{border-right:none;}
+.sc-stat-val{font-family:'DM Serif Display',serif;font-size:22px;display:block;margin-bottom:3px;}
+.sc-stat-lbl{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);}
+
+.sc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:32px;}
+
+.sc-card-wrap{display:flex;flex-direction:column;gap:10px;}
+.sc-card-lbl{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:flex;justify-content:space-between;}
+.sc-card-lbl span{color:var(--blue);font-family:'DM Mono',monospace;}
+
+.scratch-outer{position:relative;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:var(--bg);cursor:crosshair;user-select:none;-webkit-user-select:none;}
+
+/* Prize layer */
+.prize-layer{width:100%;padding:24px 16px 20px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:260px;text-align:center;gap:8px;}
+.prize-balls{width:160px;height:130px;margin-bottom:4px;filter:drop-shadow(0 0 20px rgba(59,130,246,0.6)) drop-shadow(0 0 50px rgba(59,130,246,0.2));animation:ballPrize 4s ease-in-out infinite;}
+@keyframes ballPrize{0%,100%{transform:translateY(0) scale(1);}50%{transform:translateY(-6px) scale(1.03);}}
+.prize-title{font-family:'DM Serif Display',serif;font-size:18px;line-height:1.2;letter-spacing:-.01em;}
+.prize-desc{font-size:11px;color:var(--muted);line-height:1.6;max-width:170px;}
+.prize-value{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;padding:4px 12px;border-radius:2px;margin-top:2px;}
+
+/* Tier colors */
+.tier-jackpot .prize-layer{background:linear-gradient(135deg,#0a1a0b,#081408);}
+.tier-jackpot .prize-title{color:#22c55e;}
+.tier-jackpot .prize-value{background:rgba(34,197,94,.1);color:#22c55e;border:1px solid rgba(34,197,94,.25);}
+
+.tier-silver .prize-layer{background:linear-gradient(135deg,#0d0d18,#0a0a14);}
+.tier-silver .prize-title{color:#cbd5e1;}
+.tier-silver .prize-value{background:rgba(148,163,184,.08);color:#94a3b8;border:1px solid rgba(148,163,184,.2);}
+
+.tier-dud .prize-layer{background:linear-gradient(135deg,#100c0c,#120a0a);}
+.tier-dud .prize-title{color:#fca5a5;}
+.tier-dud .prize-value{background:rgba(239,68,68,.08);color:#ef4444;border:1px solid rgba(239,68,68,.2);}
+
+.tier-gold .prize-layer{background:linear-gradient(135deg,#130e02,#181003);}
+.tier-gold .prize-title{color:var(--gold);}
+.tier-gold .prize-value{background:rgba(245,200,66,.08);color:var(--gold);border:1px solid rgba(245,200,66,.25);}
+
+.scratch-canvas{position:absolute;top:0;left:0;width:100%;height:100%;border-radius:var(--r);touch-action:none;transition:opacity .4s ease;}
+
+.scratch-hint{position:absolute;bottom:10px;right:10px;display:flex;align-items:center;gap:5px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);pointer-events:none;transition:opacity .3s;}
+.scratch-hint svg{width:12px;height:12px;color:rgba(255,255,255,.3);}
+.scratch-outer.scratched .scratch-hint{opacity:0;}
+
+.revealed-badge{position:absolute;top:10px;right:10px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);background:var(--blue-dim);border:1px solid var(--blue-mid);padding:3px 9px;border-radius:2px;opacity:0;transform:scale(.8);transition:all .3s .2s;pointer-events:none;}
+.scratch-outer.fully-revealed .revealed-badge{opacity:1;transform:scale(1);}
+
+.sc-reset{display:flex;flex-direction:column;align-items:center;gap:10px;}
+.btn-reset{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:13px 30px;background:transparent;color:var(--blue);border:1px solid var(--blue);border-radius:var(--r);cursor:pointer;display:inline-flex;align-items:center;gap:10px;transition:all .2s;}
+.btn-reset:hover{background:var(--blue);color:#fff;}
+.btn-reset:active{transform:scale(.97);}
+.sc-note{font-size:11px;color:var(--muted);letter-spacing:.06em;}
+
+/* Odds table */
+.odds-grid{display:flex;flex-direction:column;gap:1px;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin-top:40px;}
+.odds-row{display:grid;grid-template-columns:36px 1fr auto auto;align-items:center;gap:16px;padding:14px 22px;background:var(--bg);border-bottom:1px solid var(--line);transition:background .2s;}
+.odds-row:last-child{border-bottom:none;}
+.odds-row:hover{background:var(--bg3);}
+.odds-num{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:.06em;}
+.odds-prize{font-size:13px;font-weight:600;}
+.odds-sub{font-size:11px;color:var(--muted);margin-top:2px;}
+.odds-pct{font-family:'DM Mono',monospace;font-size:12px;color:var(--muted);}
+.odds-chip{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:2px;}
+
+/* ── CTA ── */
+.ctasec{padding:120px 48px;border-top:1px solid var(--line);position:relative;overflow:hidden;}
+.ctabg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 100%,rgba(59,130,246,.09) 0%,transparent 70%);pointer-events:none;}
+.ctain{max-width:720px;margin:0 auto;text-align:center;position:relative;z-index:2;}
+.ctain .slbl{justify-content:center;}
+.ctatitle{font-family:'DM Serif Display',serif;font-size:clamp(40px,6vw,68px);line-height:1.05;letter-spacing:-.02em;margin-bottom:20px;}
+.ctatitle em{font-style:italic;color:var(--blue);}
+.ctadesc{font-size:16px;color:var(--muted);line-height:1.8;margin-bottom:40px;max-width:500px;margin-left:auto;margin-right:auto;}
+.ctaacts{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:32px;}
+.cabox{display:inline-flex;align-items:center;gap:14px;border:1px solid var(--line);background:var(--bg2);border-radius:var(--r);padding:12px 18px;cursor:pointer;transition:all .2s;margin:0 auto;}
+.cabox:hover{border-color:var(--blue-mid);}
+.calbl{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);}
+.caval{font-family:'DM Mono',monospace;font-size:12px;}
+.cacopy{color:var(--muted);transition:color .2s;}
+.cabox:hover .cacopy{color:var(--blue);}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--line);padding:48px;display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;}
+.flogo{font-family:'DM Serif Display',serif;font-size:22px;margin-bottom:10px;}
+.flogo span{color:var(--blue);}
+.ftagline{font-size:12px;color:var(--muted);max-width:260px;line-height:1.7;}
+.flinks{display:flex;gap:48px;flex-wrap:wrap;}
+.fcol-title{font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;}
+.fcol a{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);text-decoration:none;margin-bottom:10px;transition:color .2s;}
+.fcol a:hover{color:var(--text);}
+.fbot{border-top:1px solid var(--line);padding:18px 48px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.fbot p{font-size:11px;color:var(--muted);letter-spacing:.04em;line-height:1.7;}
+
+/* SCRATCH WIDGET BUTTON */
+#sw{position:fixed;bottom:24px;right:24px;z-index:200;background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);padding:14px 20px;cursor:pointer;transition:all .2s;min-width:130px;user-select:none;}
+#sw:hover{border-color:var(--blue-mid);}
+#sw:active{transform:scale(.96);}
+.swt{display:flex;align-items:center;gap:8px;margin-bottom:5px;}
+.swi{width:14px;height:14px;color:var(--blue);}
+.swlbl{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);}
+.swn{font-family:'DM Serif Display',serif;font-size:28px;display:block;line-height:1;margin-bottom:3px;}
+.swh{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);animation:swblink 2s step-end infinite;}
+@keyframes swblink{0%,100%{opacity:1;}50%{opacity:0;}}
+.pop{position:fixed;font-family:'DM Serif Display',serif;font-style:italic;font-size:17px;color:var(--accent);pointer-events:none;z-index:9997;animation:popani .9s forwards;white-space:nowrap;}
+@keyframes popani{0%{transform:translateY(0) scale(.8);opacity:1;}100%{transform:translateY(-70px) scale(1.05);opacity:0;}}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.75);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;}
+.modal-overlay.show{opacity:1;pointer-events:all;}
+.modal{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:44px 38px;max-width:420px;width:90%;text-align:center;transform:scale(.9) translateY(20px);transition:all .3s;position:relative;}
+.modal-overlay.show .modal{transform:scale(1) translateY(0);}
+.modal-close{position:absolute;top:14px;right:14px;width:30px;height:30px;background:var(--bg3);border:1px solid var(--line);border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--muted);transition:all .2s;}
+.modal-close:hover{color:var(--text);border-color:var(--muted);}
+.modal-icon-wrap{width:68px;height:68px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 22px;}
+.modal-icon-wrap svg{width:32px;height:32px;}
+.modal-title{font-family:'DM Serif Display',serif;font-size:30px;letter-spacing:-.02em;margin-bottom:10px;line-height:1.1;}
+.modal-prize{font-family:'DM Serif Display',serif;font-size:20px;font-style:italic;margin-bottom:12px;}
+.modal-desc{font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:26px;}
+.modal-fine{font-size:11px;color:var(--muted);letter-spacing:.06em;border-top:1px solid var(--line);padding-top:14px;line-height:1.6;}
+.btn-modal{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:13px 28px;background:var(--blue);color:#fff;border:1px solid var(--blue);border-radius:var(--r);cursor:pointer;width:100%;margin-bottom:10px;transition:all .2s;}
+.btn-modal:hover{background:transparent;color:var(--blue);}
+
+/* CONFETTI */
+#confettiCanvas{position:fixed;inset:0;pointer-events:none;z-index:999;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  nav{padding:0 20px;}
+  .nav-mid{display:none;}
+  .hero{grid-template-columns:1fr;padding:90px 20px 60px;gap:40px;}
+  .hright{height:260px;}
+  .bsvg{width:200px;height:200px;}
+  .sec,.scratch-section,.ctasec{padding:60px 20px;}
+  .awrap,.tkwrap{grid-template-columns:1fr;gap:48px;}
+  .sgrid{grid-template-columns:1fr 1fr;}
+  .scell:nth-child(2){border-right:none;}
+  .scell:nth-child(3){border-right:1px solid var(--line);border-top:1px solid var(--line);}
+  .scell:nth-child(4){border-right:none;border-top:1px solid var(--line);}
+  .sc-grid{grid-template-columns:1fr;}
+  .sc-stats{flex-direction:column;}
+  .sc-stat{border-right:none;border-bottom:1px solid var(--line);}
+  .sc-stat:last-child{border-bottom:none;}
+  .ibar,.ticker{padding-left:20px;padding-right:20px;}
+  footer{padding:32px 20px;}
+  .fbot{padding:16px 20px;}
+}
+</style>
+</head>
+<body>
+<canvas id="confettiCanvas"></canvas>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">$<span>ITCHY</span>BALLS</div>
+  <div class="nav-mid">
+    <a href="#about">About</a>
+    <a href="#tokenomics">Tokenomics</a>
+    <a href="#scratch">Scratch</a>
+    <a href="#roadmap">Roadmap</a>
+  </div>
+  <div class="nav-r">
+    <a href="#" class="btn-o">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      Chart
+    </a>
+    <a href="#buy" class="btn-o btn-f">Buy Now</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div style="padding-top:64px;">
+<div class="hero">
+  <div>
+    <div class="eyebrow"><span class="pdot"></span>Live on Solana</div>
+    <h1>The World's<br><em>Scratchiest</em><br>Memecoin.</h1>
+    <div class="htick">
+      <svg width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="#3b82f6"/></svg>
+      $ITCHYBALLS &nbsp;/&nbsp; +420.69% &nbsp;/&nbsp; 69,420 holders
+    </div>
+    <p class="hdesc">An itch so persistent it became a token. <strong>$ITCHYBALLS</strong> is community-owned, liquidity-locked, and deeply, profoundly itchy. No VCs. No presale. Just the primal urge to scratch.</p>
+    <div class="hacts">
+      <a href="#buy" class="btn-p">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        Buy $ITCHYBALLS
+      </a>
+      <a href="#scratch" class="btn-g">
+        Try Scratch Card
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="hright">
+    <div class="orb"></div>
+    <div class="bwrap">
+      <div class="blbl tl">CERTIFIED ITCHY</div>
+      <div class="blbl tr">HAIRY AF</div>
+      <div class="blbl br">FULLY AUDITED</div>
+      <svg class="bsvg" viewBox="0 0 300 270" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="lg" cx="32%" cy="28%" r="65%"><stop offset="0%" stop-color="#7DB8E8"/><stop offset="100%" stop-color="#1d5fa8"/></radialGradient>
+          <radialGradient id="rg" cx="32%" cy="28%" r="65%"><stop offset="0%" stop-color="#93c5fd"/><stop offset="100%" stop-color="#2563eb"/></radialGradient>
+        </defs>
+        <ellipse cx="108" cy="138" rx="96" ry="108" fill="url(#lg)"/>
+        <ellipse cx="194" cy="138" rx="96" ry="108" fill="url(#rg)"/>
+        <ellipse cx="82" cy="102" rx="28" ry="18" fill="white" opacity="0.1"/>
+        <ellipse cx="168" cy="102" rx="28" ry="18" fill="white" opacity="0.13"/>
+        <path d="M28 118 C22 110 18 100 24 95" stroke="#0f2d5e" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        <path d="M34 160 C26 155 22 145 28 140" stroke="#0f2d5e" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        <path d="M50 196 C44 188 44 178 50 174" stroke="#0f2d5e" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        <path d="M75 220 C70 212 72 202 78 200" stroke="#0f2d5e" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        <path d="M108 232 C104 222 106 214 112 213" stroke="#0f2d5e" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        <path d="M72 68 C68 60 72 52 78 52" stroke="#0f2d5e" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        <path d="M108 36 C106 28 112 22 118 24" stroke="#0f2d5e" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        <path d="M272 118 C278 110 282 100 276 95" stroke="#0f2d5e" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        <path d="M266 160 C274 155 278 145 272 140" stroke="#0f2d5e" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        <path d="M250 196 C256 188 256 178 250 174" stroke="#0f2d5e" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        <path d="M225 220 C230 212 228 202 222 200" stroke="#0f2d5e" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        <path d="M194 232 C198 222 196 214 190 213" stroke="#0f2d5e" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        <path d="M228 68 C232 60 228 52 222 52" stroke="#0f2d5e" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        <path d="M192 36 C194 28 188 22 182 24" stroke="#0f2d5e" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        <path d="M72 130 Q80 118 92 125" stroke="#1a4a8a" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+        <path d="M58 160 Q68 148 80 155" stroke="#1a4a8a" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+        <path d="M88 182 Q98 170 110 177" stroke="#1a4a8a" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+        <path d="M65 100 Q75 88 87 95" stroke="#1a4a8a" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+        <path d="M108 80 Q120 68 132 75" stroke="#1a4a8a" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+        <path d="M228 130 Q220 118 208 125" stroke="#1a4a8a" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+        <path d="M242 160 Q232 148 220 155" stroke="#1a4a8a" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+        <path d="M212 182 Q202 170 190 177" stroke="#1a4a8a" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+        <path d="M235 100 Q225 88 213 95" stroke="#1a4a8a" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+        <path d="M190 80 Q180 68 168 75" stroke="#1a4a8a" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+      </svg>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ITCH BAR -->
+<div class="ibar">
+  <span class="ibar-lbl">Itch Level</span>
+  <div class="ibar-wrap"><div class="ibar-fill" id="ibf"></div></div>
+  <span class="ibar-val" id="ibv">88%</span>
+</div>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ttrack">
+    <span class="titem"><b>$ITCHYBALLS</b><span class="tsep"></span></span>
+    <span class="titem">+420.69%<span class="tsep"></span></span>
+    <span class="titem">Market Cap <b>$69,000,000</b><span class="tsep"></span></span>
+    <span class="titem">Holders <b>69,420</b><span class="tsep"></span></span>
+    <span class="titem">Itch Level <b>UNBEARABLE</b><span class="tsep"></span></span>
+    <span class="titem">Liquidity <b>LOCKED</b><span class="tsep"></span></span>
+    <span class="titem">Tax <b>0 / 0</b><span class="tsep"></span></span>
+    <span class="titem">Supply <b>69,000,000,000</b><span class="tsep"></span></span>
+    <span class="titem"><b>$ITCHYBALLS</b><span class="tsep"></span></span>
+    <span class="titem">+420.69%<span class="tsep"></span></span>
+    <span class="titem">Market Cap <b>$69,000,000</b><span class="tsep"></span></span>
+    <span class="titem">Holders <b>69,420</b><span class="tsep"></span></span>
+    <span class="titem">Itch Level <b>UNBEARABLE</b><span class="tsep"></span></span>
+    <span class="titem">Liquidity <b>LOCKED</b><span class="tsep"></span></span>
+    <span class="titem">Tax <b>0 / 0</b><span class="tsep"></span></span>
+    <span class="titem">Supply <b>69,000,000,000</b><span class="tsep"></span></span>
+  </div>
+</div>
+
+<!-- STATS -->
+<section class="sec" id="about">
+  <div class="slbl">By the numbers</div>
+  <div class="sgrid">
+    <div class="scell">
+      <svg class="si" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      <span class="sv">69B</span><span class="sl">Total Supply</span>
+    </div>
+    <div class="scell">
+      <svg class="si" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      <span class="sv">69,420</span><span class="sl">Holders</span>
+    </div>
+    <div class="scell">
+      <svg class="si" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+      <span class="sv">420%</span><span class="sl">All-Time Gain</span>
+    </div>
+    <div class="scell">
+      <svg class="si" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      <span class="sv">LOCKED</span><span class="sl">Liquidity</span>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="sec" style="border-top:1px solid var(--line);">
+  <div class="awrap">
+    <div class="atxt">
+      <div class="slbl">The origin</div>
+      <h2 class="stitle" style="margin-bottom:0;">An itch the market<br><em>couldn't ignore</em></h2>
+      <div style="margin-top:40px;">
+        <p>In 2024, one man scratched. Then he kept scratching. Then he asked the one question that changed everything: <strong>what if we tokenized this?</strong></p>
+        <p>$ITCHYBALLS was born — not from a VC pitch deck, not from an anonymous team's whitepaper — but from a deeply, <strong>fundamentally human feeling</strong>.</p>
+        <blockquote><p>"You can ignore a lot of things. You cannot ignore an itch."</p></blockquote>
+        <p>0% buy/sell tax. Liquidity locked. Contract renounced. The only thing we haven't locked is the itch itself. <strong>That's yours to keep forever.</strong></p>
+      </div>
+    </div>
+    <div>
+      <div class="slbl">Why hold</div>
+      <div class="flist" style="margin-top:38px;">
+        <div class="fitem"><span class="fn">01</span><div class="fb"><strong>Zero Tax. Zero Games.</strong><span>0% buy and sell tax. What you buy is what you keep.</span></div></div>
+        <div class="fitem"><span class="fn">02</span><div class="fb"><strong>Renounced Contract</strong><span>Fully renounced. No one can mint, freeze, or change tokenomics.</span></div></div>
+        <div class="fitem"><span class="fn">03</span><div class="fb"><strong>No Presale, No VCs</strong><span>Fair launch. Every holder bought at the same time as everyone else.</span></div></div>
+        <div class="fitem"><span class="fn">04</span><div class="fb"><strong>25% Supply Burned</strong><span>17.25 billion tokens permanently removed from circulation.</span></div></div>
+        <div class="fitem"><span class="fn">05</span><div class="fb"><strong>The Itch Is Contagious</strong><span>Once you feel it, you can't stop. $ITCHYBALLS spreads itself.</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOKENOMICS -->
+<section class="sec" style="border-top:1px solid var(--line);" id="tokenomics">
+  <div class="slbl">Scratchinomics</div>
+  <h2 class="stitle">Where does it all <em>go?</em></h2>
+  <div class="tkwrap">
+    <div class="rwrap">
+      <svg class="rsvg" viewBox="0 0 200 200">
+        <circle cx="100" cy="100" r="76" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="22"/>
+        <circle cx="100" cy="100" r="76" fill="none" stroke="#3b82f6" stroke-width="22" stroke-dasharray="238.8 477.5" stroke-dashoffset="119.4" transform="rotate(-90 100 100)"/>
+        <circle cx="100" cy="100" r="76" fill="none" stroke="#93c5fd" stroke-width="22" stroke-dasharray="119.4 477.5" stroke-dashoffset="-119.4" transform="rotate(-90 100 100)"/>
+        <circle cx="100" cy="100" r="76" fill="none" stroke="#e8d5b0" stroke-width="22" stroke-dasharray="71.6 477.5" stroke-dashoffset="-238.8" transform="rotate(-90 100 100)"/>
+        <circle cx="100" cy="100" r="76" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="22" stroke-dasharray="47.8 477.5" stroke-dashoffset="-310.4" transform="rotate(-90 100 100)"/>
+      </svg>
+      <div class="rcenter"><div class="rcv">69B</div><div class="rcl">Total Supply</div></div>
+    </div>
+    <div class="titems">
+      <div class="trow"><div class="tdot" style="background:#3b82f6"></div><span class="tname">Liquidity Pool</span><span class="tpct">50%</span><span class="tnote">Locked</span></div>
+      <div class="trow"><div class="tdot" style="background:#93c5fd"></div><span class="tname">Burned Forever</span><span class="tpct">25%</span><span class="tnote">Irretrievable</span></div>
+      <div class="trow"><div class="tdot" style="background:#e8d5b0"></div><span class="tname">Community</span><span class="tpct">15%</span><span class="tnote">Vested</span></div>
+      <div class="trow"><div class="tdot" style="background:rgba(255,255,255,.14)"></div><span class="tname">Marketing</span><span class="tpct">10%</span><span class="tnote">Multi-sig</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     SCRATCH CARD SECTION
+════════════════════════════════════ -->
+<section class="scratch-section" id="scratch">
+  <div class="scratch-inner">
+    <div class="slbl">Scratch &amp; Win</div>
+    <h2 class="stitle">Scratch the <em>bag</em> open.</h2>
+
+    <!-- Stats bar -->
+    <div class="sc-stats">
+      <div class="sc-stat"><span class="sc-stat-val" id="cardsLeft">3</span><span class="sc-stat-lbl">Cards Left</span></div>
+      <div class="sc-stat"><span class="sc-stat-val" id="cardsWon">0</span><span class="sc-stat-lbl">Prizes Won</span></div>
+      <div class="sc-stat"><span class="sc-stat-val" id="totalValue">—</span><span class="sc-stat-lbl">Total Value</span></div>
+      <div class="sc-stat"><span class="sc-stat-val" id="itchScore">0%</span><span class="sc-stat-lbl">Itch Score</span></div>
+    </div>
+
+    <!-- Cards -->
+    <div class="sc-grid" id="scGrid"></div>
+
+    <!-- Reset -->
+    <div class="sc-reset">
+      <button class="btn-reset" onclick="resetCards()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+        New Cards
+      </button>
+      <p class="sc-note">Scratch all three — then grab a fresh set. Repeat until enlightened.</p>
+    </div>
+
+    <!-- Odds table -->
+    <div style="margin-top:48px;">
+      <div class="slbl">Prize breakdown</div>
+      <div class="odds-grid" id="oddsGrid"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section class="sec" style="border-top:1px solid var(--line);" id="roadmap">
+  <div class="rmwrap">
+    <div class="slbl">The scratch map</div>
+    <h2 class="stitle">Four phases to <em>eternal itch</em></h2>
+    <div>
+      <div class="rmi done">
+        <div class="rml"><div class="rmnum">01</div><div class="rmline"></div></div>
+        <div class="rmr">
+          <div class="rmph">Phase One — The Itch Begins</div>
+          <div class="rmtitle">Token Launch &amp; Website</div>
+          <p class="rmdesc">Deploy $ITCHYBALLS on Solana. Build the world's cleanest itchy website. Acquire the first 420 holders. Lock liquidity. Renounce contract.</p>
+          <span class="rmbadge done">Completed</span>
+        </div>
+      </div>
+      <div class="rmi done">
+        <div class="rml"><div class="rmnum">02</div><div class="rmline"></div></div>
+        <div class="rmr">
+          <div class="rmph">Phase Two — The Scratch Spreads</div>
+          <div class="rmtitle">Community &amp; Market Presence</div>
+          <p class="rmdesc">Organic meme distribution. Discord and Telegram communities. CoinGecko and CoinMarketCap listings. Target 10,000 holders.</p>
+          <span class="rmbadge now">In Progress</span>
+        </div>
+      </div>
+      <div class="rmi">
+        <div class="rml"><div class="rmnum">03</div><div class="rmline"></div></div>
+        <div class="rmr">
+          <div class="rmph">Phase Three — Balls to the Moon</div>
+          <div class="rmtitle">Exchange Listings &amp; Merch</div>
+          <p class="rmdesc">Tier-1 CEX listings. 69,420 holder target. $ITCHYBALLS merchandise. The mainstream cannot resist the itch.</p>
+          <span class="rmbadge up">Upcoming</span>
+        </div>
+      </div>
+      <div class="rmi">
+        <div class="rml"><div class="rmnum">04</div><div class="rmline"></div></div>
+        <div class="rmr">
+          <div class="rmph">Phase Four — Eternal Itch</div>
+          <div class="rmtitle">DAO Governance &amp; World Domination</div>
+          <p class="rmdesc">$ITCHYBALLS DAO launches. Scratch-to-earn application. Real-world activations. Bloomberg asks: "What is $ITCHYBALLS?" We answer: everything.</p>
+          <span class="rmbadge up">Upcoming</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="ctasec" id="buy">
+  <div class="ctabg"></div>
+  <div class="ctain">
+    <div class="slbl">Don't resist</div>
+    <h2 class="ctatitle">Ready to <em>scratch?</em></h2>
+    <p class="ctadesc">Join 69,420 holders who stopped ignoring the itch. Swap on Raydium, Jupiter, or any Solana DEX. Recommended slippage 3–5%.</p>
+    <div class="ctaacts">
+      <a href="#" class="btn-p">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        Buy on Raydium
+      </a>
+      <a href="#" class="btn-g">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        Buy on Jupiter
+      </a>
+    </div>
+    <div class="cabox" onclick="copyCA(this)">
+      <div>
+        <div class="calbl">Contract Address</div>
+        <div class="caval" id="caVal">iTcHy69bA11sXXXXXXXXXXXXXXXXXXXX4206969</div>
+      </div>
+      <svg class="cacopy" id="caIcon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="flogo">$<span>ITCHY</span>BALLS</div>
+    <p class="ftagline">The world's scratchiest memecoin. Community-owned. Liquidity locked. Deeply itchy.</p>
+  </div>
+  <div class="flinks">
+    <div class="fcol">
+      <div class="fcol-title">Community</div>
+      <a href="#"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>Twitter / X</a>
+      <a href="#"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21.198 2.433a2.242 2.242 0 0 0-1.022.215l-8.609 3.33c-2.068.8-4.133 1.598-5.724 2.21a405.15 405.15 0 0 1-2.849 1.09c-.42.147-.99.332-1.473.901-.728.968.193 1.798.919 2.286 1.61.516 3.275 1.009 4.654 1.472.509 1.793.997 3.592 1.48 5.388.16.36.506.494.864.498.556.035.888-.291 1.186-.568l2.844-2.844 4.917 3.455c.546.391 1.163.551 1.779.551.968 0 1.908-.493 2.354-1.339.765-1.393.938-2.927 1.007-4.44.139-3.118.218-6.241-.032-9.356-.065-1.24-.793-2.287-1.973-2.837z"/></svg>Telegram</a>
+      <a href="#"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Discord</a>
+    </div>
+    <div class="fcol">
+      <div class="fcol-title">Markets</div>
+      <a href="#"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>DexScreener</a>
+      <a href="#"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>CoinGecko</a>
+      <a href="#"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Birdeye</a>
+    </div>
+  </div>
+</footer>
+<div class="fbot">
+  <p>© 2024 The Itchy Foundation. All scratches reserved.</p>
+  <p>$ITCHYBALLS is a memecoin with no intrinsic value. Not financial advice. Consult a dermatologist for actual itching.</p>
+</div>
+
+<!-- SCRATCH WIDGET -->
+<div id="sw" onclick="scratch()">
+  <div class="swt">
+    <svg class="swi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 0 0-4 0v5M14 10V4a2 2 0 0 0-4 0v6M10 10.5V6a2 2 0 0 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg>
+    <span class="swlbl">Scratches</span>
+  </div>
+  <span class="swn" id="swn">0</span>
+  <span class="swh">Click to scratch</span>
+</div>
+
+<!-- WIN MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="modal-icon-wrap" id="modalIconWrap"></div>
+    <div class="modal-title" id="modalTitle"></div>
+    <div class="modal-prize" id="modalPrize"></div>
+    <p class="modal-desc" id="modalDesc"></p>
+    <button class="btn-modal" onclick="closeModal()">Claim Prize</button>
+    <p class="modal-fine" id="modalFine"></p>
+  </div>
+</div>
+
+<script>
+// ─── ITCH BAR ───
+let lvl = 88;
+setTimeout(() => { document.getElementById('ibf').style.width = lvl + '%'; }, 200);
+setInterval(() => {
+  lvl = Math.min(98, Math.max(82, lvl + (Math.random() - 0.42) * 2));
+  document.getElementById('ibf').style.width = Math.round(lvl) + '%';
+  document.getElementById('ibv').textContent = Math.round(lvl) + '%';
+}, 2500);
+
+// ─── SCRATCH WIDGET ───
+let scratchCount = 0;
+const words = ['Relief.','That\'s the spot.','Keep going.','More.','Perfect.','Yes.','There.','Finally.','Don\'t stop.','Blessed.'];
+function scratch() {
+  scratchCount++;
+  document.getElementById('swn').textContent = scratchCount.toLocaleString();
+  const w = document.getElementById('sw');
+  w.style.transform = 'scale(.94)';
+  setTimeout(() => w.style.transform = '', 110);
+  const p = document.createElement('div');
+  p.className = 'pop';
+  p.textContent = words[scratchCount % words.length];
+  const r = w.getBoundingClientRect();
+  p.style.left = (r.left + r.width / 2 - 40) + 'px';
+  p.style.top = (r.top - 10) + 'px';
+  document.body.appendChild(p);
+  setTimeout(() => p.remove(), 900);
+}
+
+// ─── COPY CA ───
+function copyCA() {
+  navigator.clipboard.writeText(document.getElementById('caVal').textContent).catch(() => {});
+  const ic = document.getElementById('caIcon');
+  ic.innerHTML = '<polyline points="20 6 9 17 4 12"/>';
+  ic.style.color = 'var(--blue)';
+  setTimeout(() => {
+    ic.innerHTML = '<rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>';
+    ic.style.color = '';
+  }, 2000);
+}
+
+// ─── PRIZES ───
+const prizes = [
+  { id:'nothing', tier:'dud', title:'Absolutely Nothing', desc:'You scratched it. Nothing happened. The card stares back. You stare back.', value:'$0.00', valueNum:0, odds:'40%', fine:'Terms: This was the expected outcome. You are not special. Neither are we.', icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>`, chipColor:'rgba(239,68,68,.1)', chipText:'#ef4444', chipBorder:'rgba(239,68,68,.2)', chipLabel:'Dud', modalBg:'rgba(239,68,68,.1)', modalColor:'#fca5a5' },
+  { id:'advice', tier:'dud', title:'Unsolicited Advice', desc:'"Have you tried drinking more water?" — Our legal team.', value:'Priceless*', valueNum:0, odds:'20%', fine:'*Not actually priceless. Also not advice. Do not drink more water on our behalf.', icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>`, chipColor:'rgba(239,68,68,.1)', chipText:'#ef4444', chipBorder:'rgba(239,68,68,.2)', chipLabel:'Dud', modalBg:'rgba(239,68,68,.1)', modalColor:'#fca5a5' },
+  { id:'permission', tier:'silver', title:'Permission to Scratch', desc:'Legally permitted to scratch yourself in 48 US states. Not legally binding.', value:'Legally Dubious', valueNum:0, odds:'12%', fine:'Not valid in Nebraska or international waters. The Foundation accepts no liability.', icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>`, chipColor:'rgba(148,163,184,.1)', chipText:'#94a3b8', chipBorder:'rgba(148,163,184,.2)', chipLabel:'Rare', modalBg:'rgba(148,163,184,.1)', modalColor:'#cbd5e1' },
+  { id:'nft', tier:'dud', title:'An NFT of This Losing Card', desc:'You won an NFT of the exact card you just lost on. Worth the same. Which is nothing.', value:'0.000 SOL', valueNum:0, odds:'10%', fine:'NFT minted to an address we lost. You may display it at weddings.', icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>`, chipColor:'rgba(239,68,68,.1)', chipText:'#ef4444', chipBorder:'rgba(239,68,68,.2)', chipLabel:'Dud', modalBg:'rgba(239,68,68,.1)', modalColor:'#fca5a5' },
+  { id:'itch', tier:'silver', title:'1,000 $ITCHYBALLS', desc:'An actual token prize. 1,000 $ITCHYBALLS, delivered to the wallet of our choosing.', value:'1,000 $ITCHY', valueNum:1000, odds:'8%', fine:'Delivery estimated Q4 2027, or whenever the itch subsides. Whichever comes first.', icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>`, chipColor:'rgba(148,163,184,.1)', chipText:'#94a3b8', chipBorder:'rgba(148,163,184,.2)', chipLabel:'Rare', modalBg:'rgba(148,163,184,.1)', modalColor:'#cbd5e1' },
+  { id:'apology', tier:'silver', title:'A Handwritten Apology', desc:'Our founder will personally write you an apology. It will be sincere. It will not help.', value:'1 Apology', valueNum:0, odds:'5%', fine:"Apology arrives in 6–8 business years. The founder's handwriting is illegible. Intentional.", icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>`, chipColor:'rgba(148,163,184,.1)', chipText:'#94a3b8', chipBorder:'rgba(148,163,184,.2)', chipLabel:'Rare', modalBg:'rgba(148,163,184,.1)', modalColor:'#cbd5e1' },
+  { id:'lambo', tier:'gold', title:'The Lambo (Image)', desc:'A high-resolution image of a Lamborghini. The actual car is not included.', value:'1 JPEG', valueNum:0, odds:'3%', fine:'Royalty-free stock image. The car belongs to someone else. Do not attempt to drive it.', icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>`, chipColor:'rgba(245,200,66,.1)', chipText:'#f5c842', chipBorder:'rgba(245,200,66,.25)', chipLabel:'Legendary', modalBg:'rgba(245,200,66,.1)', modalColor:'#f5c842' },
+  { id:'moon', tier:'gold', title:'A Moon Certificate', desc:'Certified owner of 1m² of the Moon. Not recognized by NASA, any government, or the Moon.', value:'1m² of Moon', valueNum:0, odds:'1.5%', fine:'Governed by the Outer Space Treaty of 1967, which makes this entirely meaningless. Congrats.', icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`, chipColor:'rgba(245,200,66,.1)', chipText:'#f5c842', chipBorder:'rgba(245,200,66,.25)', chipLabel:'Legendary', modalBg:'rgba(245,200,66,.1)', modalColor:'#f5c842' },
+  { id:'jackpot', tier:'jackpot', title:'69 Billion $ITCHYBALLS', desc:'THE JACKPOT. The entire supply. All of it. Please do not tell the SEC.', value:'69,000,000,000', valueNum:69000000000, odds:'0.5%', fine:'Distributed across 4,200 transactions over 69 years. Each transaction: exactly 1 token.', icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`, chipColor:'rgba(34,197,94,.1)', chipText:'#22c55e', chipBorder:'rgba(34,197,94,.25)', chipLabel:'Jackpot', modalBg:'rgba(34,197,94,.1)', modalColor:'#22c55e' },
+];
+
+// Weighted pick
+function pickPrize() {
+  const w = [40,20,12,10,8,5,3,1.5,.5];
+  const total = w.reduce((a,b)=>a+b,0);
+  let r = Math.random() * total;
+  for (let i = 0; i < prizes.length; i++) { r -= w[i]; if (r <= 0) return prizes[i]; }
+  return prizes[0];
+}
+
+// Build odds table
+function buildOdds() {
+  document.getElementById('oddsGrid').innerHTML = prizes.map((p,i) => `
+    <div class="odds-row">
+      <span class="odds-num">${String(i+1).padStart(2,'0')}</span>
+      <div><div class="odds-prize">${p.title}</div><div class="odds-sub">${p.value}</div></div>
+      <span class="odds-pct">${p.odds}</span>
+      <span class="odds-chip" style="background:${p.chipColor};color:${p.chipText};border:1px solid ${p.chipBorder};">${p.chipLabel}</span>
+    </div>
+  `).join('');
+}
+
+// ─── CARD STATE ───
+let cardsScratched = 0;
+let wonCount = 0;
+let totalVal = 0;
+let itchPct = 0;
+
+function buildCard(index) {
+  const prize = pickPrize();
+  const wrap = document.createElement('div');
+  wrap.className = 'sc-card-wrap';
+  wrap.innerHTML = `
+    <div class="sc-card-lbl">Card #${String(index+1).padStart(2,'0')}<span>SCRATCH TO REVEAL</span></div>
+    <div class="scratch-outer tier-${prize.tier}" id="outer-${index}">
+      <div class="prize-layer">
+        <svg class="prize-balls" viewBox="0 0 300 260" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="plg${index}" cx="32%" cy="28%" r="65%">
+              <stop offset="0%" stop-color="#7DB8E8"/>
+              <stop offset="100%" stop-color="#1d5fa8"/>
+            </radialGradient>
+            <radialGradient id="prg${index}" cx="32%" cy="28%" r="65%">
+              <stop offset="0%" stop-color="#93c5fd"/>
+              <stop offset="100%" stop-color="#2563eb"/>
+            </radialGradient>
+          </defs>
+          <ellipse cx="108" cy="133" rx="96" ry="108" fill="url(#plg${index})"/>
+          <ellipse cx="194" cy="133" rx="96" ry="108" fill="url(#prg${index})"/>
+          <ellipse cx="82" cy="97" rx="28" ry="18" fill="white" opacity="0.11"/>
+          <ellipse cx="168" cy="97" rx="28" ry="18" fill="white" opacity="0.14"/>
+          <path d="M28 113 C22 105 18 95 24 90" stroke="#0f2d5e" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+          <path d="M34 155 C26 150 22 140 28 135" stroke="#0f2d5e" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+          <path d="M50 191 C44 183 44 173 50 169" stroke="#0f2d5e" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+          <path d="M75 215 C70 207 72 197 78 195" stroke="#0f2d5e" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+          <path d="M108 227 C104 217 106 209 112 208" stroke="#0f2d5e" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+          <path d="M72 63 C68 55 72 47 78 47" stroke="#0f2d5e" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+          <path d="M108 31 C106 23 112 17 118 19" stroke="#0f2d5e" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+          <path d="M272 113 C278 105 282 95 276 90" stroke="#0f2d5e" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+          <path d="M266 155 C274 150 278 140 272 135" stroke="#0f2d5e" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+          <path d="M250 191 C256 183 256 173 250 169" stroke="#0f2d5e" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+          <path d="M225 215 C230 207 228 197 222 195" stroke="#0f2d5e" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+          <path d="M194 227 C198 217 196 209 190 208" stroke="#0f2d5e" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+          <path d="M228 63 C232 55 228 47 222 47" stroke="#0f2d5e" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+          <path d="M192 31 C194 23 188 17 182 19" stroke="#0f2d5e" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+          <path d="M72 125 Q80 113 92 120" stroke="#1a4a8a" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+          <path d="M58 155 Q68 143 80 150" stroke="#1a4a8a" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+          <path d="M88 177 Q98 165 110 172" stroke="#1a4a8a" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+          <path d="M65 95 Q75 83 87 90" stroke="#1a4a8a" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+          <path d="M108 75 Q120 63 132 70" stroke="#1a4a8a" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+          <path d="M228 125 Q220 113 208 120" stroke="#1a4a8a" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+          <path d="M242 155 Q232 143 220 150" stroke="#1a4a8a" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+          <path d="M212 177 Q202 165 190 172" stroke="#1a4a8a" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+          <path d="M235 95 Q225 83 213 90" stroke="#1a4a8a" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+          <path d="M190 75 Q180 63 168 70" stroke="#1a4a8a" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+        </svg>
+        <div class="prize-title">${prize.title}</div>
+        <div class="prize-desc">${prize.desc}</div>
+        <div class="prize-value">${prize.value}</div>
+      </div>
+      <canvas class="scratch-canvas" id="sc-canvas-${index}"></canvas>
+      <div class="scratch-hint">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 0 0-4 0v5M14 10V4a2 2 0 0 0-4 0v6M10 10.5V6a2 2 0 0 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg>
+        Scratch
+      </div>
+      <div class="revealed-badge">Revealed</div>
+    </div>
+  `;
+  return { wrap, prize };
+}
+
+function initCanvas(canvasEl, outerEl, prize) {
+  const ctx = canvasEl.getContext('2d');
+  let revealed = false;
+
+  function draw() {
+    const w = outerEl.offsetWidth, h = outerEl.offsetHeight;
+    canvasEl.width = w; canvasEl.height = h;
+
+    // Dark background
+    ctx.fillStyle = '#08080f';
+    ctx.fillRect(0, 0, w, h);
+
+    // Subtle dot grid texture
+    ctx.fillStyle = 'rgba(255,255,255,0.03)';
+    for (let gy = 6; gy < h; gy += 12) {
+      for (let gx = 6; gx < w; gx += 12) {
+        ctx.fillRect(gx, gy, 1, 1);
+      }
+    }
+
+    // Radial glow behind balls
+    const cx = w / 2, cy = h / 2 - 12;
+    const glow = ctx.createRadialGradient(cx, cy, 0, cx, cy, w * 0.55);
+    glow.addColorStop(0, 'rgba(59,130,246,0.22)');
+    glow.addColorStop(1, 'rgba(59,130,246,0)');
+    ctx.fillStyle = glow;
+    ctx.fillRect(0, 0, w, h);
+
+    // ── DRAW THE BALLS ──────────────────────────────────────
+    // Scale to fit the card nicely
+    const scale = Math.min(w, h * 1.15) / 300;
+    const bx = cx - 150 * scale;
+    const by = cy - 130 * scale;
+    ctx.save();
+    ctx.translate(bx, by);
+    ctx.scale(scale, scale);
+
+    // Left ball
+    const lg = ctx.createRadialGradient(80, 90, 0, 108, 133, 106);
+    lg.addColorStop(0, '#7DB8E8'); lg.addColorStop(1, '#1d5fa8');
+    ctx.fillStyle = lg;
+    ctx.beginPath(); ctx.ellipse(108, 133, 96, 108, 0, 0, Math.PI * 2); ctx.fill();
+
+    // Right ball
+    const rg = ctx.createRadialGradient(166, 90, 0, 194, 133, 106);
+    rg.addColorStop(0, '#93c5fd'); rg.addColorStop(1, '#2563eb');
+    ctx.fillStyle = rg;
+    ctx.beginPath(); ctx.ellipse(194, 133, 96, 108, 0, 0, Math.PI * 2); ctx.fill();
+
+    // Highlight gloss
+    ctx.fillStyle = 'rgba(255,255,255,0.1)';
+    ctx.beginPath(); ctx.ellipse(82, 97, 28, 18, 0, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath(); ctx.ellipse(168, 97, 28, 18, 0, 0, Math.PI * 2); ctx.fill();
+
+    // Hair curl strokes — outer
+    ctx.strokeStyle = '#0f2d5e'; ctx.lineWidth = 1.8; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+    const hairPaths = [
+      [[28,113],[22,105],[18,95],[24,90]],
+      [[34,155],[26,150],[22,140],[28,135]],
+      [[50,191],[44,183],[44,173],[50,169]],
+      [[75,215],[70,207],[72,197],[78,195]],
+      [[108,227],[104,217],[106,209],[112,208]],
+      [[72,63],[68,55],[72,47],[78,47]],
+      [[108,31],[106,23],[112,17],[118,19]],
+      [[272,113],[278,105],[282,95],[276,90]],
+      [[266,155],[274,150],[278,140],[272,135]],
+      [[250,191],[256,183],[256,173],[250,169]],
+      [[225,215],[230,207],[228,197],[222,195]],
+      [[194,227],[198,217],[196,209],[190,208]],
+      [[228,63],[232,55],[228,47],[222,47]],
+      [[192,31],[194,23],[188,17],[182,19]],
+    ];
+    hairPaths.forEach(pts => {
+      ctx.beginPath(); ctx.moveTo(pts[0][0], pts[0][1]);
+      for (let i = 1; i < pts.length; i++) ctx.lineTo(pts[i][0], pts[i][1]);
+      ctx.stroke();
+    });
+
+    // Inner hair curls
+    ctx.strokeStyle = '#1a4a8a'; ctx.lineWidth = 1.4;
+    const innerHair = [
+      [72,125, 80,113, 92,120],
+      [58,155, 68,143, 80,150],
+      [88,177, 98,165, 110,172],
+      [65,95,  75,83,  87,90],
+      [108,75, 120,63, 132,70],
+      [228,125, 220,113, 208,120],
+      [242,155, 232,143, 220,150],
+      [212,177, 202,165, 190,172],
+      [235,95,  225,83,  213,90],
+      [190,75,  180,63,  168,70],
+    ];
+    innerHair.forEach(([x1,y1,cx2,cy2,x2,y2]) => {
+      ctx.beginPath(); ctx.moveTo(x1,y1); ctx.quadraticCurveTo(cx2,cy2,x2,y2); ctx.stroke();
+    });
+
+    ctx.restore();
+    // ── END BALLS ───────────────────────────────────────────
+
+    // "$ITCHYBALLS" label at bottom
+    ctx.save();
+    ctx.globalAlpha = 0.7;
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillStyle = '#3b82f6';
+    ctx.font = `bold ${Math.round(w * 0.048)}px "Courier New", monospace`;
+    ctx.letterSpacing = '0.12em';
+    ctx.fillText('$ITCHYBALLS', w / 2, h - 22);
+    ctx.globalAlpha = 0.35;
+    ctx.fillStyle = '#ffffff';
+    ctx.font = `${Math.round(w * 0.036)}px "Courier New", monospace`;
+    ctx.fillText('SCRATCH TO REVEAL', w / 2, h - 10);
+    ctx.restore();
+
+    // Reset composite for scratching
+    ctx.globalCompositeOperation = 'destination-out';
+  }
+
+  new ResizeObserver(draw).observe(outerEl);
+  draw();
+
+  ctx.lineWidth = 54; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  ctx.strokeStyle = 'rgba(0,0,0,1)';
+  ctx.globalCompositeOperation = 'destination-out';
+
+  let painting = false;
+  function pos(e) {
+    const r = canvasEl.getBoundingClientRect();
+    const sx = canvasEl.width/r.width, sy = canvasEl.height/r.height;
+    return e.touches
+      ? {x:(e.touches[0].clientX-r.left)*sx, y:(e.touches[0].clientY-r.top)*sy}
+      : {x:(e.clientX-r.left)*sx, y:(e.clientY-r.top)*sy};
+  }
+  function check() {
+    if (revealed) return;
+    const d = ctx.getImageData(0,0,canvasEl.width,canvasEl.height).data;
+    let t = 0;
+    for (let i = 3; i < d.length; i += 4) if (d[i] < 128) t++;
+    const p = t / (canvasEl.width * canvasEl.height);
+    itchPct = Math.max(itchPct, Math.round(p*100));
+    document.getElementById('itchScore').textContent = itchPct + '%';
+    if (p > 0.55) {
+      revealed = true;
+      canvasEl.style.opacity = '0'; canvasEl.style.pointerEvents = 'none';
+      outerEl.classList.add('scratched','fully-revealed');
+      cardsScratched++;
+      document.getElementById('cardsLeft').textContent = Math.max(0, 3 - cardsScratched);
+      if (prize.valueNum > 0 || prize.id !== 'nothing') {
+        wonCount++;
+        document.getElementById('cardsWon').textContent = wonCount;
+      }
+      if (prize.valueNum > 0) {
+        totalVal += prize.valueNum;
+        document.getElementById('totalValue').textContent = totalVal >= 1e9 ? (totalVal/1e9).toFixed(0)+'B' : totalVal.toLocaleString();
+      } else if (totalVal === 0) {
+        document.getElementById('totalValue').textContent = '—';
+      }
+      setTimeout(() => showModal(prize), 320);
+    }
+  }
+  canvasEl.addEventListener('mousedown', e => { painting=true; const p=pos(e); ctx.beginPath(); ctx.moveTo(p.x,p.y); });
+  canvasEl.addEventListener('mousemove', e => { if(!painting||revealed) return; const p=pos(e); ctx.lineTo(p.x,p.y); ctx.stroke(); ctx.beginPath(); ctx.moveTo(p.x,p.y); check(); });
+  canvasEl.addEventListener('mouseup', () => { painting=false; check(); });
+  canvasEl.addEventListener('mouseleave', () => { painting=false; });
+  canvasEl.addEventListener('touchstart', e => { e.preventDefault(); painting=true; const p=pos(e); ctx.beginPath(); ctx.moveTo(p.x,p.y); }, {passive:false});
+  canvasEl.addEventListener('touchmove', e => { e.preventDefault(); if(!painting||revealed) return; const p=pos(e); ctx.lineTo(p.x,p.y); ctx.stroke(); ctx.beginPath(); ctx.moveTo(p.x,p.y); check(); }, {passive:false});
+  canvasEl.addEventListener('touchend', () => { painting=false; check(); });
+}
+
+function renderCards() {
+  const grid = document.getElementById('scGrid');
+  grid.innerHTML = '';
+  cardsScratched = 0; wonCount = 0; totalVal = 0; itchPct = 0;
+  document.getElementById('cardsLeft').textContent = '3';
+  document.getElementById('cardsWon').textContent = '0';
+  document.getElementById('totalValue').textContent = '—';
+  document.getElementById('itchScore').textContent = '0%';
+  for (let i = 0; i < 3; i++) {
+    const { wrap, prize } = buildCard(i);
+    grid.appendChild(wrap);
+    requestAnimationFrame(() => {
+      const canvas = document.getElementById(`sc-canvas-${i}`);
+      const outer = document.getElementById(`outer-${i}`);
+      initCanvas(canvas, outer, prize);
+    });
+  }
+}
+function resetCards() { renderCards(); }
+
+// ─── MODAL ───
+function showModal(prize) {
+  document.getElementById('modalIconWrap').style.background = prize.modalBg;
+  document.getElementById('modalIconWrap').innerHTML = prize.icon.replace('stroke="currentColor"', `stroke="${prize.modalColor}"`);
+  document.getElementById('modalTitle').textContent = prize.tier==='jackpot' ? 'JACKPOT.' : prize.tier==='dud' ? 'Condolences.' : 'You won something.';
+  document.getElementById('modalTitle').style.color = prize.tier==='jackpot' ? '#22c55e' : prize.tier==='dud' ? '#fca5a5' : prize.modalColor;
+  document.getElementById('modalPrize').textContent = prize.title;
+  document.getElementById('modalPrize').style.color = prize.modalColor;
+  document.getElementById('modalDesc').textContent = prize.desc;
+  document.getElementById('modalFine').textContent = prize.fine;
+  document.getElementById('modalOverlay').classList.add('show');
+  if (prize.tier === 'jackpot' || prize.tier === 'gold') launchConfetti();
+}
+function closeModal() { document.getElementById('modalOverlay').classList.remove('show'); }
+document.getElementById('modalOverlay').addEventListener('click', e => { if(e.target===document.getElementById('modalOverlay')) closeModal(); });
+
+// ─── CONFETTI ───
+function launchConfetti() {
+  const canvas = document.getElementById('confettiCanvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+  const colors = ['#3b82f6','#93c5fd','#f5c842','#e8d5b0','#22c55e','#ffffff'];
+  const ps = Array.from({length:100}, () => ({
+    x:Math.random()*canvas.width, y:-20,
+    size:4+Math.random()*6,
+    color:colors[Math.floor(Math.random()*colors.length)],
+    vx:(Math.random()-.5)*4, vy:2+Math.random()*4,
+    rot:Math.random()*360, rotV:(Math.random()-.5)*8,
+    shape:Math.random()>.5?'rect':'circle', alpha:1
+  }));
+  let frame;
+  function draw() {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    let alive = false;
+    for (const p of ps) {
+      if (p.y > canvas.height+20) continue;
+      alive = true; p.x+=p.vx; p.y+=p.vy; p.vy+=0.05; p.rot+=p.rotV; p.alpha-=0.005;
+      ctx.save(); ctx.globalAlpha=Math.max(0,p.alpha); ctx.translate(p.x,p.y); ctx.rotate(p.rot*Math.PI/180); ctx.fillStyle=p.color;
+      if(p.shape==='rect') ctx.fillRect(-p.size/2,-p.size/4,p.size,p.size/2);
+      else { ctx.beginPath(); ctx.arc(0,0,p.size/2,0,Math.PI*2); ctx.fill(); }
+      ctx.restore();
+    }
+    if(alive) frame=requestAnimationFrame(draw);
+    else ctx.clearRect(0,0,canvas.width,canvas.height);
+  }
+  cancelAnimationFrame(frame); draw();
+}
+
+// ─── TAB TITLE ───
+const tabs=['$ITCHYBALLS','Scratch it.','The itch awaits.','Buy the itch.'];
+let ti=0;
+setInterval(()=>{document.title=tabs[ti++%tabs.length];},3500);
+
+// ─── INIT ───
+buildOdds();
+renderCards();
+</script>
+</body>
+</html>
